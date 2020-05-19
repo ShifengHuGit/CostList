@@ -1,0 +1,12 @@
+idcs_user="shifeng.hu@oracle.com"
+idcs_psw="**********"
+idcs_GUID="idcs-98fff01357e048f48df510c0d475e360"
+idcs_accountID="cacct-37d439a35c2d46c4a7e437c0ed4a20dd"
+
+
+tenancyId="ocid1.tenancy.oc1..aaaaaaaalylrk6bjiuxqryukd6jrlxgfbwjuulnavxqehvv3crknt7ewhlpa";
+authUserId="ocid1.user.oc1..aaaaaaaageo3dvxmayk2fzj5mi4qtmkr4fw6qjnesbgsh3ft6wsfj7wcngiq";
+keyFingerprint="64:44:4a:ec:43:f4:8b:60:c1:60:bd:37:0d:82:8e:ae";
+privateKeyPath="/Users/shifenghu/Desktop/OCI-API/oraclebmc/bmcs_api_key.pem";
+
+RootCompartmentID="ocid1.tenancy.oc1..aaaaaaaalylrk6bjiuxqryukd6jrlxgfbwjuulnavxqehvv3crknt7ewhlpa"
