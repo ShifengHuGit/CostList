@@ -267,9 +267,14 @@ rollupLevel=RESOURCE"`;
 
         Req=`cat $TEMP_Req | jq 'reduce inputs as $i (.; .items += $i.items)'`
 
-
-        Len=`echo $Req | jq -r '.items | length'`
-
+	if [ ! -n $Len ];then
+		echo " ----- Nothing responsed via REST api for getting the enrolled services and cost usage,        ---- "
+		echo " ----- There might be incorrect account information within account.conf or network unreachable ---- " 
+		exit
+	else
+        	Len=`echo $Req | jq -r '.items | length'`
+	fi
+	
     if [ $Len -eq 0 ];then
         #echo "No cost at $name"
         continue
