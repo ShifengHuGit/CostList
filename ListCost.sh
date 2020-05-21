@@ -218,6 +218,23 @@ fi
 
 
 ###
+# 1st try to access the IDCS via Curl to see if there is some error happened 
+###
+# if 401 is returned , means there is misconfigure for IDCS account
+#
+IDCS_HTTPCODE=`curl -sIL -X GET -u "$idcs_user:$idcs_psw" \
+	-w  %{http_code} -H "X-ID-TENANT-NAME:$idcs_GUID"  \
+	-o /dev/null \
+	https://itra.oraclecloud.com/itas/$idcs_GUID/myservices/api/v1/serviceEntitlements`
+if [ $IDCS_HTTPCODE -ne 200 ];then
+	echo -e "\033[33mError! HTTP Return code: \033[31m$IDCS_HTTPCODE \033[0m"
+		if [ $IDCS_HTTPCODE -eq 401 ];then
+			echo -e "\033[33mAuthErr. Account name: \033[31m$idcs_user \033[0m"
+			echo -e "\033[33mPlease check your account name or passowrd in accout.conf\033[0m"
+		fi
+	exit
+
+fi
 
 ServiceName=`curl -s -X GET -u "$idcs_user:$idcs_psw" -H "X-ID-TENANT-NAME:$idcs_GUID" \
 https://itra.oraclecloud.com/itas/$idcs_GUID/myservices/api/v1/serviceEntitlements |\
